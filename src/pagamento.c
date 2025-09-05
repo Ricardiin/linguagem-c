@@ -3,14 +3,23 @@
 
 int main(){
     system("clear");
+
     float preco, resultado;
     char forma_pg;
+
     printf("Digite o Valor a ser pago e tecle ENTER\n");
-    scanf("Digite o valor a ser pago e tecle enter\n");
     scanf("%f", &preco);
 
-    printf("Digite a forma de pagamento sendo:\nc->crédito\nd->débito\nD->dinheiro\np->pix\n");
+
+    //Limpar o buffer do teclado antes de ler o caractere para a execuç~´ao anterio e segue para a proxima etacpa
+    getchar();
+    //importante para evitar que o '\n' da leitura anterior seja capturado
+
+    printf("Digite a forma de pagamento, sendo:\n");
+    printf("\nc -> credito\nd -> debito\nD -> dinheiro\np -> pix\n");
+
     scanf("%c", &forma_pg);
+
 
     if ( forma_pg == 'c' ) {
         resultado = preco * (0.5 + 1);
@@ -26,7 +35,7 @@ int main(){
     }
     else if ( forma_pg == 'p'){
         resultado = preco * 0.96;
-        printf("O valor a ser pago no pix é %f\n",resultado);
+        printf("O valor a ser pago no pix é %2f\n",resultado);
     }
     else {
         printf("Esta forma de pagamento NÃO EXISTE!\n");
